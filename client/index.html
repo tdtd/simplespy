@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	  <title>SimpleSpy</title>
+	  <meta name="description" content="SimpleSpy">
+	  <meta name="author" content="Tdtd">
+	  <!--[if lt IE 9]>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	  <![endif]-->
+		<link rel="stylesheet" href="./css/stylesheet.css">
+	</head>
+	<body>
+		<div class="menu">
+			<ul>
+				<li><a data-scroll-link="main">Main</a></li>
+				<li><a data-scroll-link="a" data-scroll-class="activeRed">Section A</a></li>
+				<li><a data-scroll-link="b">Section B</a></li>
+				<li><a data-scroll-link="c">Section C</a></li>
+				<li><a data-scroll-link="d">Section D</a></li>
+				<li><a data-scroll-link="e">Section E</a></li>
+			</ul>
+			<div class="text-center">
+				<input type="button" class="btn-flat btn-warning" id="tgFirst" value="Only Top">
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="intro" data-scroll-spy="main">
+				<h1>SimpleSpy</h1>
+				<h3>No Requirements Scroll Spying</h3>
+				<h3>Basics</h3>
+				<p>SimpleSpy uses custom attributes to track and modify classes.</p>
+				<ul class="code-sample">
+					<li>data-scroll-spy="name" : sets an element to be tracked.</li>
+					<li>data-scroll-link="name" : sets an element to be manipulated when the spy element is triggered.</li>
+					<li>data-scroll-class="className" : Set a custom class for the scroll-link element.</li>
+				</ul>
+				<h3>Options</h3>
+				<div class="code-sample">
+				<p>{</p>
+					<p class="indent">onlyTop : {boolean} controls whether spy only manipulates the top inbounds object or all inbounds objects. (Default: true) </p>
+					<p class="indent">activeClassName : {string} sets the className that will be added to and removed from active scroll-links. (Default: 'active')</p>
+					<p class="indent">linkArriveFunction : {function} Default function to be run from the scroll-link element when the activeClassName is added. (default: null)</p>
+					<p class="indent">linkDepartFunction : {function} Default function to be run from the scroll-link element when the activeClassName is removed. (default: null)</p>
+					<p class="indent">elementArriveFunction : {function} Default function to be run from the scroll-spy element when the activeClassName is added to the scroll-link. (default: null)</p>
+					<p class="indent">elementDepartFunction : {function} Default function to be run from the scroll-spy  element when the activeClassName is removed to the scroll-link. (default: null)</p>
+				<p>}</p>
+			</div>
+				<h3>Available Functions</h3>
+					<p>Set the Arrive and Depart Functions of a specific scroll-link element.</p>
+					<ul class="code-sample">
+						<li>Spy.setLinkArriveFunction("scrollLinkName", function(){})</li>
+						<li>Spy.setLinkDepartFunction("scrollLinkName", function(){})</li>
+					</ul>
+					<p>Set the Arrive and Depart Functions of a specific scroll-spy element.</p>
+					<ul class="code-sample">
+						<li>Spy.setElementArriveFunction("scrollSpyName", function(){})</li>
+						<li>Spy.setElementDepartFunction("scrollSpyName", function(){})</li>
+					</ul>
+
+				<h3>Setup</h3>
+				<div class="code-sample">
+					&lt;body><br>
+					<div class="indent">
+						<p>&lt;div></p>
+							<div class="indent">
+								<p> &lt;button data-scroll-link="article1"> &lt;/button></p>
+								<p> &lt;button data-scroll-link="article2" data-scroll-class="className" > &lt;/button></p>
+							</div>
+						<p>&lt;/div></p>
+					</div>
+					<div class="indent">
+						<p>&lt;div></p>
+							<div class="indent">
+								<p> &lt;div data-scroll-spy="article1"> &lt;/div></p>
+							</div>
+							<div class="indent">
+								<p> &lt;div data-scroll-spy="article2"> &lt;/div></p>
+							</div>
+						<p>&lt;/div></p>
+					</div>
+					<p>&lt;/body></p>
+					<p>&lt;script src="./simpleSpy.js">&lt;/script></p>
+					<p>&lt;script></p>
+					<p class="indent">var options = {
+						onlyTop: true,
+						activeClassName: 'active'
+					};
+					</p>
+					<p class="indent">var Spy = new SimpleSpy(options);</p>
+					<p>&lt;/script></p>
+				</div>
+			</div>
+			<section data-scroll-spy="a" id="a" style="order: 1;">
+				<h1>Section A</h1>
+				<p>Custom Class activeRed</p>
+			</section>
+			<section data-scroll-spy="b" id="b" style="order: 2;">
+				<h1>Section B</h1>
+			</section>
+			<section data-scroll-spy="c" id="c" style="order: 3;">
+				<h1>Section C</h1>
+			</section>
+			<section data-scroll-spy="d" id="d" style="order: 4;">
+				<h1>Section D</h1>
+			</section>
+			<section data-scroll-spy="e" id="e" style="order: 5;">
+				<h1>Section E</h1>
+			</section>
+		</div>
+
+		<script src="./js/simpleSpy.min.js"></script>
+		<script src="./js/main.js"></script>
+	</body>
+</html>
